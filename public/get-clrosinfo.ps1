@@ -1,5 +1,5 @@
 Function Get-clrosinfo {
-    $osinfo = Get-CimInstance Win32_OperatingSystem | Select-Object Caption,SerialNumber,Version,BuildNumber,OSArchitecture
+    $osinfo = Get-CimInstance Win32_OperatingSystem
 
     [PSCustomObject]@{
         'Operating System' = $osinfo.Caption
