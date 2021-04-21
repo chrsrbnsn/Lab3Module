@@ -1,5 +1,10 @@
 Function Get-clrcpusystem {
-    $cpuvalues = Get-CimInstance -ClassName Win32_ComputerSystem
+    
+    param (
+        [string[]]$machinename
+    )
+
+    $cpuvalues = Get-CimInstance -ClassName Win32_ComputerSystem -ComputerName $machinename
 
     [PSCustomObject]@{
         'Computer Name' = $cpuvalues.Name
